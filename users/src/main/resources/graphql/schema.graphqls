@@ -1,0 +1,7 @@
+type Query {
+    requestToken(username: String!): TokenResponse
+}
+
+type TokenResponse {
+    token: String!
+}

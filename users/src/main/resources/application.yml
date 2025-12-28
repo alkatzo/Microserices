@@ -1,0 +1,8 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: users
+auth:
+  service:
+    url: http://localhost:8082/graphql

@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  auth:
+    build: ./auth
+    ports:
+      - "8082:8082"
+  users:
+    build: ./users
+    ports:
+      - "8081:8081"
+    environment:
+      - AUTH_SERVICE_URL=http://auth:8082/graphql
