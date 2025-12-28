@@ -3,3 +3,19 @@ server:
 spring:
   application:
     name: auth
+  security:
+    oauth2:
+      client:
+        registration:
+          okta:
+            client-id: p9JbwwJMHEuARzQr2P4D6JSGpQFVi43I
+            client-secret: idSpbY8kveX0oF9sOY3QqEbUhYLTlO6Td2dOEwOqQ7qNTxF15-M50BxigtpdsX5k
+            scope: openid, profile, email
+            redirect-uri: "{baseUrl}/login/oauth2/code/okta"
+        provider:
+          okta:
+            issuer-uri: https://alkatzo.au.auth0.com/
+  
+okta:
+  oauth2:
+    issuer: https://alkatzo.au.auth0.com/
