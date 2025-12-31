@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Company Chatbot</title>
+</head>
+<body>
+  <h2>Company Chatbot</h2>
+  <div id="chat"></div>
+  <input id="question" type="text" placeholder="Ask a question..." />
+  <button onclick="send()">Send</button>
+  <script>
+    function send() {
+      const q = document.getElementById('question').value;
+      fetch('/chat', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({question: q})
+      })
+      .then(r => r.text())
+      .then(a => {
+        document.getElementById('chat').innerHTML += `<div><b>You:</b> ${q}</div><div><b>Bot:</b> ${a}</div>`;
+        document.getElementById('question').value = '';
+      });
+    }
+  </script>
+</body>
+</html>
