@@ -11,9 +11,8 @@ public class MainController {
     private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
     @GetMapping("/main")
-    @ResponseBody
     public String mainPage() {
         logger.info("User reached /main page.");
-        return "<h1>Welcome to the Main User Page!</h1><p>You are now authenticated.</p>";
+        return "redirect:/chat.html";
     }
 }
